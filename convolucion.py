@@ -7,7 +7,7 @@ def convolucion(Ioriginal, Kernel):
     #For para recorrer filas
     for i in range(len(Resultado)):
         #For para recorrer columnas
-        for j in range(len(Ioriginal)):
+        for j in range(len(Resultado[0])):
             suma = 0
             #hace las multiplicaiones y las suma
             for m in range(len(Kernel)):
@@ -16,11 +16,14 @@ def convolucion(Ioriginal, Kernel):
             Resultado[i][j]=suma
     return Resultado
 
+#Imagenes
 K=[[-1,0,1], [-1,0,1], [-1,0,1]]
 I=[[2,0,1,1,1],[3,0,0,0,2],[1,1,1,1,1],[3,1,1,1,2],[1,1,1,1,1]]
 
+#Imagenes a numpy arrays
 In=np.array(I)
 Kn=np.array(K)
 
+#Funcion de convolucion
 R=convolucion(In,Kn)
 print(R)
